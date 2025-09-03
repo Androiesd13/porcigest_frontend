@@ -1,45 +1,97 @@
-import { ClassNames } from "@emotion/react"
-import { TextField } from "@mui/material"
+"use client";
+import {
+  TextField,
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+  Button,
+} from "@mui/material";
+import { useState } from "react";
+
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 export default function Home() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [documento, setDocumento] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>)=> {
+    e.preventDefault();
+    if(!documento || !password){
+      setError("Los campos son obligatorios")
+      return
+    }
+    const regexDoc = /^\d{10}$/
+    if(!regexDoc.test(documento)){
+      setError("Numero de documento inválido, debe tener 10 dígitos")
+      return
+    }
+  }
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
   return (
     <>
-     <header className="max-w-5xl m-auto mt-10 flex justify-between">
-      <h5 className="text-3xl text-center text-[#395B64]">PorciGest</h5>
-      <h4>Usuario</h4>
-    </header>
-    
-  <main>
+      <main className="min-w-lg m-auto py-10 px-4 bg-stone-50 rounded-md shadow-lg">
+        <div className="text-center">
+          <h2 className="mb-5 text-4xl text-[#395b64]">Hello! </h2>
+          <h2>Inicia Sesion en PorciGest</h2>
+        </div>
+        <form className="max-w-md m-auto mt-12 flex flex-col">
+          <div className="flex flex-col gap-1 mb-6">
+            <label> Numero documento </label>
+            <TextField id="outlined-basic" variant="outlined" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label> Contraseña </label>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label={
+                      showPassword
+                        ? "hide the password"
+                        : "display the password"
+                    }
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    onMouseUp={handleMouseUpPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </div>
+          <div className="mt-4 flex justify-between">
+            <a className="text-sm/6  text-[#395b64]">No tienes una cuenta?</a>
+            <Button variant="contained" color="primary">
+              Crear
+            </Button>
+          </div>
 
-    <div className="bg-[#A5C9CA] text-center max-w-5xl m-auto">
-        <h2 className="mb-8" >Hello! </h2>
-        <h2> Inicia Sesion en PorciGest </h2>
-    </div>
-
-    <form className="max-w-md m-auto mt-15 ">
-      <div className="flex flex-col ">
-        <label> Numero documento </label>
-        <TextField id="outlined-basic" variant="outlined" placeholder="Ingrese su numero"/>
-      </div>
-        
-      <div className="flex flex-col mt-8">
-         <label> Contraseña </label>
-        <TextField id="outlined-basic" variant="outlined" placeholder="********"/>
-      </div>
-      <div className=" px-13 mt-4 flex justify-between">
-        <a className="text-sm/6">Crear una cuenta</a>
-        <button className="bg-[#99DECB] h-8 min-w-[80px]  rounded-md">Crear</button>
-      </div>
-
-      <div className="m-auto px-28 mt-8">
-        <button className="bg-[#99DECB] h-10 min-w-[220px]  rounded-md text-center" >Iniciar Sesion</button>
-      </div>   
-    
-    </form>
-
-  </main>
-    
-  </>
-   
+          <div className="m-auto mt-6">
+            <Button variant="contained" color="primary">
+              Iniciar Sesion
+            </Button>
+          </div>
+        </form>
+      </main>
+    </>
   );
 }

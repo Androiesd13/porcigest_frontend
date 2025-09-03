@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Quicksand, Roboto } from "next/font/google";
 import "./globals.css";
+import ThemeRegistry from "./theme/ThemeRegistry";
 
 const quicksand = Quicksand({
-  subsets: ["latin"]
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -19,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.className} antialiased font-semibold`}
+        className={`${quicksand.className} antialiased font-semibold min-h-screen flex items-center justify-center`}
       >
-        {children}
+        <ThemeRegistry>
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );

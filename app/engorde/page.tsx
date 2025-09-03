@@ -7,16 +7,15 @@ import { Button } from '@mui/material';
 
 
 
-export default function engorde(){
+export default function Engorde(){
     return(
     <>
      <header className="max-w-5xl m-auto mt-10 flex justify-between">
         <h5 className="text-3xl text-center text-[#395B64]">PorciGest</h5>
         <h4>Usuario</h4>
     </header>
-
     <main>
-    <div className="bg-[#A5C9CA] text-center max-w-5xl m-auto flex justify-between p-4">
+    <div className="bg-[#A5C9CA] text-center max-w-5xl flex justify-between p-4">
         <button className="flex flex-col items-center"><SportsEsportsIcon className="mb-1"/>
         <span>Dashbord</span>
         </button>
