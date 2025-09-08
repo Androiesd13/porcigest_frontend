@@ -1,96 +1,24 @@
-"use client";
-import {
-  TextField,
-  OutlinedInput,
-  InputAdornment,
-  IconButton,
-  Button,
-} from "@mui/material";
-import { useState } from "react";
-
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import Link from "next/link";
 
 export default function Home() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [documento, setDocumento] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>)=> {
-    e.preventDefault();
-    if(!documento || !password){
-      setError("Los campos son obligatorios")
-      return
-    }
-    const regexDoc = /^\d{10}$/
-    if(!regexDoc.test(documento)){
-      setError("Numero de documento inválido, debe tener 10 dígitos")
-      return
-    }
-  }
-
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-  };
-
   return (
     <>
-      <main className="min-w-lg m-auto py-10 px-4 bg-stone-50 rounded-md shadow-lg">
-        <div className="text-center">
-          <h2 className="mb-5 text-4xl text-[#395b64]">Hello! </h2>
-          <h2>Inicia Sesion en PorciGest</h2>
+      <header className="max-w-4xl mx-auto py-4 flex items-center justify-between ">
+        <div className="logo flex gap-2 items-center">
+          <img src="" alt="" className="bg-primary w-10 h-10 rounded-full"/>
+          <h3 className="text-2xl">Porcigest</h3>
         </div>
-        <form className="max-w-md m-auto mt-12 flex flex-col">
-          <div className="flex flex-col gap-1 mb-6">
-            <label> Numero documento </label>
-            <TextField id="outlined-basic" variant="outlined" />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label> Contraseña </label>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label={
-                      showPassword
-                        ? "hide the password"
-                        : "display the password"
-                    }
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    onMouseUp={handleMouseUpPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </div>
-          <div className="mt-4 flex justify-between">
-            <a className="text-sm/6  text-[#395b64]">No tienes una cuenta?</a>
-            <Button variant="contained" color="primary">
-              Crear
-            </Button>
-          </div>
-
-          <div className="m-auto mt-6">
-            <Button variant="contained" color="primary">
-              Iniciar Sesion
-            </Button>
-          </div>
-        </form>
+        <nav>
+          <ul className="flex gap-4 items-center">
+            <li className="uppercase"><a href="" className="hover:underline">About us</a></li>
+            <li className="uppercase"><Link href="/login" className="hover:underline">Log in</Link></li>
+            <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><a href="">Sing up</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main className="max-w-4xl m-auto mt-8">
+        <h1 className="text-6xl mb-3">Bienvenido a Porcigest</h1>
+        <p className="text-lg">El mejor sistema de gestion para unidades porcinas desarrollado en el <strong className="color-primary">C.A.S.A</strong></p>
       </main>
     </>
   );

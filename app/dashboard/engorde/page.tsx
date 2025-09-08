@@ -1,46 +1,6 @@
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import SavingsIcon from '@mui/icons-material/Savings';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Button } from '@mui/material';
-
-
-
 export default function Engorde(){
     return(
     <>
-     <header className="max-w-5xl m-auto mt-10 flex justify-between">
-        <h5 className="text-3xl text-center text-[#395B64]">PorciGest</h5>
-        <h4>Usuario</h4>
-    </header>
-    <main>
-    <div className="bg-[#A5C9CA] text-center max-w-5xl flex justify-between p-4">
-        <button className="flex flex-col items-center"><SportsEsportsIcon className="mb-1"/>
-        <span>Dashbord</span>
-        </button>
-
-        <button className="flex flex-col items-center"><SavingsIcon/>
-            <span>Reproductoras</span>
-        </button>
-
-        <button className="flex flex-col items-center">
-            <span>Sementales</span>
-        </button>
-
-        <button className="flex flex-col items-center">
-            <span>Lechones</span>
-        </button>
-
-        <button className="flex flex-col items-center">
-            <span>Engorde</span>
-        </button>
-
-        <button className="flex flex-col items-center"><MedicalServicesIcon/>
-            <span>Veterinaria</span>
-        </button>
-    </div>
-
     <div className="max-w-5xl m-auto mt-8 px-5">
           <h1 className="text-2xl font-bold mb-5">Gestión de cerdos de engorde</h1>
 
@@ -80,7 +40,6 @@ export default function Engorde(){
           </div>
 
         </div>
-      </main>
     </>
     )
 }

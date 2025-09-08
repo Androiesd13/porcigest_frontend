@@ -1,4 +1,7 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, alpha, getContrastRatio } from "@mui/material/styles";
+
+const primary = "#395b64"
+const secondary = "#a5c9ca"
 
 const theme = createTheme({
   typography: {
@@ -9,15 +12,31 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#A5C9CA",
+      main: primary,
+      light: alpha(primary, 0.5),
+      dark: alpha(primary, 0.9),
+      contrastText: getContrastRatio(primary, '#fff') > 4.5 ? '#fff' : '#111',
     },
     secondary: {
-      main: "#395b64", // tu color secundario
+      main: secondary,
+      contrastText: getContrastRatio(secondary, '#fff') > 4.5 ? '#fff' : '#111'
+    },
+    error:{
+      main: "#E4004B"
+    },
+    warning:{
+      main: "#FFCC00"
+    },
+    info:{
+      main: "#3396D3"
+    },
+    success:{
+      main: "#386641"
     },
     background: {
       default: "#e7f6f2",
     },
   },
 });
-
+  
 export default theme;
