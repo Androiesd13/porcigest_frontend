@@ -1,3 +1,4 @@
+
 "use client";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +24,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
-
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -67,37 +67,7 @@ export default function lechones(){
 
     return(
         <>
-            <header className="max-w-5xl m-auto mt-10 flex justify-between">
-                <h5 className="text-3xl text-center text-[#395B64]">PorciGest</h5>
-                <h4>Usuario</h4>
-            </header>
             <main>
-                 <div className="bg-[#A5C9CA] text-center max-w-5xl m-auto flex justify-between p-4">
-                    <Button className="flex flex-col items-center "><SportsEsportsIcon className="mb-1 text-black"/>
-                        <span className='text-black'>Dashbord</span>
-                    </Button>
-
-                    <Button className="flex flex-col items-center"><SavingsIcon className='mb-1 text-black'/>
-                        <span className='text-black'>Reproductoras</span>
-                    </Button>
-
-                    <Button className="flex flex-col items-center"><MaleIcon className="mb-1 text-black"/>
-                        <span className='text-black'>Sementales</span>
-                    </Button> 
-
-                    <Button className="flex flex-col items-center"><StrollerIcon className="mb-1 text-black"/>
-                        <span className='text-black'>Lechones</span>
-                    </Button>
-
-                    <Button onClick={() => router.push("/engorde")} className="flex flex-col items-center"><ScaleIcon className="mb-1 text-black"/>
-                        <span className='text-black'>Engorde</span>
-                    </Button>
-
-                    <Button className="flex flex-col items-center"><MedicalServicesIcon className="mb-1 text-black"/>
-                        <span className='text-black'>Veterinaria</span>
-                    </Button>
-                </div>
-
                 <div className="max-w-5xl m-auto mt-8 px-5">
                     <div className='flex justify-between'>
                         <h1 className="text-2xl font-bold mb-5">Control de Lechones</h1>
