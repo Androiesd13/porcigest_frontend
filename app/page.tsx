@@ -12,7 +12,7 @@ export default function Home() {
           <ul className="flex gap-4 items-center">
             <li className="uppercase"><a href="" className="hover:underline">About us</a></li>
             <li className="uppercase"><Link href="/login" className="hover:underline">Log in</Link></li>
-            <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><a href="">Sing up</a></li>
+            <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
           </ul>
         </nav>
       </header>
