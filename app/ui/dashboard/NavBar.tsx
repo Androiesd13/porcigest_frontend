@@ -38,19 +38,19 @@ export default function NavBar() {
         <ItemNav
           label="Lechones"
           path="/dashboard/lechones"
-          icon={<ScaleRounded />}
+          icon={<StrollerRounded />}
         />
 
         <ItemNav
           label="Engorde"
           path="/dashboard/engorde"
-          icon={<MedicalServicesRounded />}
+          icon={<ScaleRounded />}
         />
 
         <ItemNav
           label="Veterinaria"
           path="/dashboard/veterinaria"
-          icon={<StrollerRounded />}
+          icon={<MedicalServicesRounded />}
         />
       </ul>
     </nav>
