@@ -10,7 +10,7 @@ export default function LayoutDashboard({
     <>
       <Header />
       <NavBar/>
-      <main className="max-w-4xl mx-auto">{children}</main>
+      <main className="max-w-(--widthApp) mx-auto">{children}</main>
     </>
   );
 }

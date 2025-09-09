@@ -1,6 +1,6 @@
 export default function(){
     return (
-        <header className="max-w-5xl mx-auto p-5 flex justify-between h-20 items-center">
+        <header className="max-w-(--widthApp) mx-auto p-5 flex justify-between h-20 items-center">
             <div id="logo" className="flex gap-2 items-center">
                 <img src={undefined} className="bg-"/>
                 <h3 className="text-2xl">Porcigest</h3>

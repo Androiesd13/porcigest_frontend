@@ -18,7 +18,7 @@ export default function Home() {
       </header>
       <main className="max-w-4xl m-auto mt-8">
         <h1 className="text-6xl mb-3">Bienvenido a Porcigest</h1>
-        <p className="text-lg">El mejor sistema de gestion para unidades porcinas desarrollado en el <strong className="color-primary">C.A.S.A</strong></p>
+        <p className="text-lg">El mejor sistema de gestion para unidades porcinas desarrollado en <strong className="color-primary">C.A.S.A</strong></p>
       </main>
     </>
   );

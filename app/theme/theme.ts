@@ -1,7 +1,7 @@
 import { createTheme, alpha, getContrastRatio } from "@mui/material/styles";
 
-const primary = "#395b64"
-const secondary = "#a5c9ca"
+const primary = "#91c8d2"
+const secondary = "#91a9d2"
 
 const theme = createTheme({
   typography: {
@@ -34,7 +34,7 @@ const theme = createTheme({
       main: "#386641"
     },
     background: {
-      default: "#e7f6f2",
+      default: "#395b64",
     },
   },
 });

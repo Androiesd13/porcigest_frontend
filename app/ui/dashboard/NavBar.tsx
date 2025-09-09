@@ -1,3 +1,5 @@
+"use client"
+
 import {
   SportsEsportsRounded,
   SavingsRounded,
@@ -8,15 +10,14 @@ import {
 } from "@mui/icons-material";
 
 import ItemNav from "../utils/ItemNav";
-
 interface Props {
   itemSelected: number;
 }
 
 export default function NavBar() {
   return (
-    <nav className={`max-w-4xl mx-auto p-3 bg-secondary rounded-sm`}>
-      <ul className="flex items-center justify-around">
+    <nav className={`max-w-(--widthApp) mx-auto bg-secondary rounded-sm`}>
+      <ul className="flex justify-around">
         <ItemNav
           label="Dashboard"
           path="/dashboard"

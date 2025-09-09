@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #395b64;
+  --accent: #395b64;
   --secondary: #a5c9ca;
   --foreground: #171717;
+  --widthApp: 64rem
 }
 
 @theme inline{
@@ -12,7 +13,8 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-secondary: var(--secondary);
-  --color-secondary-dark: #84a1a2
+  --color-secondary-dark: #84a1a2;
+  --color-accent: var(--accent)
 }
 
 body {
@@ -22,7 +24,7 @@ body {
 }
 
 h1, h2, h3, h4{
-  font-weight: 500;
+  font-weight: 600;
 }
 
 li{
