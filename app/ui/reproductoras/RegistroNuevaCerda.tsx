@@ -6,6 +6,7 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
 
 export default function ({setShowForm}: {setShowForm : (value: boolean)=> void}) {
   return (
@@ -15,24 +16,23 @@ export default function ({setShowForm}: {setShowForm : (value: boolean)=> void})
     >
       <h2 className="text-md font-bold">Registro nueva cerda</h2>
       <section className="flex justify-between">
-        <TextField label="Codigo" size="small" placeholder="Ej: CRD-2024-001" />
-        <TextField size="small" placeholder="Ej: CRD-2024-001" type="date" />
-
+        <TextField label="Codigo" placeholder="Ej: CRD-2024-001" />
+        <DatePicker label="Fecha de nacimiento"/>
         <FormControl sx={{ minWidth: "200px" }}>
           <InputLabel id="raza">Raza</InputLabel>
-          <Select label="Raza" size="small" labelId="raza">
+          <Select label="Raza" labelId="raza">
             <MenuItem value={"yorkshire"}>Yorkshire</MenuItem>
           </Select>
         </FormControl>
 
         <FormControl sx={{ minWidth: "200px" }}>
           <InputLabel id="estado">Estado</InputLabel>
-          <Select label="Estado" size="small" labelId="estado">
+          <Select label="Estado" labelId="estado">
             <MenuItem value={"vacia"}>Vacia</MenuItem>
           </Select>
         </FormControl>
       </section>
-      <div id="acctions" className="flex gap-1 mt-5">
+      <div id="actions" className="flex gap-1 mt-5">
         <Button
           variant="contained"
           sx={{ alignSelf: "start"}}

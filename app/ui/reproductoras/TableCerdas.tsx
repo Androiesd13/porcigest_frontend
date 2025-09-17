@@ -45,16 +45,16 @@ const rows = [
 // edad => fechaActual - fechaNacimiento
 //
 
-const colums = [
-  "fecha",
-  "edad",
-  "raza",
-  "estado",
-  "último parto",
-  "n° partos",
-  "proximo_evento",
-  "acciones",
+const columns = [
+  { key: "id", label: "ID" },
+  { key: "edad", label: "Edad" },
+  { key: "estado", label: "Estado" },
+  { key: "ultimo_parto", label: "Ultimo Parto " },
+  { key: "n_partos", label: "N° Partos" },
+  { key: "prox_evento", label: "Proximo Evento" },
+  { key:"acciones", label: "Acciones"}
 ];
+
 
 export default function TableCerdas() {
   return (
@@ -63,15 +63,7 @@ export default function TableCerdas() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Codigo</StyledTableCell>
-            <StyledTableCell align="left">Edad</StyledTableCell>
-            <StyledTableCell align="left">Edad</StyledTableCell>
-            <StyledTableCell align="left">Raza</StyledTableCell>
-            <StyledTableCell align="left">Estado</StyledTableCell>
-            <StyledTableCell align="left">Último parto</StyledTableCell>
-            <StyledTableCell align="left">N° Partos</StyledTableCell>
-            <StyledTableCell align="left">Proximo Evento</StyledTableCell>
-            <StyledTableCell align="left">Acciones</StyledTableCell>
+            {columns.map(col => <StyledTableCell align="left">{col.label}</StyledTableCell>)}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -90,9 +82,7 @@ export default function TableCerdas() {
               </TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
                 <Tooltip title="Editar">
                   <IconButton color="success">
                     <CreateRounded />

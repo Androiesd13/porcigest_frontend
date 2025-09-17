@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Quicksand} from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "./theme/ThemeRegistry";
+
+import ClientWrapper from "./ui/utils/ClientWrapper";
+import { createTheme } from "@mui/material/styles";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -20,11 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${quicksand.className} antialiased min-h-screen`}
-      >
+      <body className={`${quicksand.className} antialiased min-h-screen`}>
         <ThemeRegistry>
-          {children}
+          <ClientWrapper>{children}</ClientWrapper>
         </ThemeRegistry>
       </body>
     </html>

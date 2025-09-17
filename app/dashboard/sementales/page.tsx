@@ -5,6 +5,7 @@ import RegistroNuevoSemental from "@/ui/sementales/RegistroNuevoSemental";
 
 import { useState } from "react";
 import CardsSementales from "@/ui/sementales/CardsSementales";
+import TableSementales from '../../ui/sementales/TableSementales';
 
 export default function Sementales() {
   const [openForm, setOpenForm] = useState(false);
@@ -18,8 +19,9 @@ export default function Sementales() {
         textButton="Nuevo Semental"
         setShowForm={handleClick}
       />
-      <RegistroNuevoSemental/>
+      {openForm && <RegistroNuevoSemental setShowForm={setOpenForm}/>}
       <CardsSementales/>
+      <TableSementales/>
     </>
   );
 }
