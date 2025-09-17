@@ -3,7 +3,8 @@ import { useRouter } from "next/navigation";
 
 import { Button, TextField } from "@mui/material";
 
-import AddIcon from "@mui/icons-material/Add";
+import {useState} from 'react'
+
 import EditIcon from "@mui/icons-material/Edit";
 
 import * as React from "react";
@@ -17,6 +18,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import HeaderGestion from "@/ui/utils/HeaderGestion";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -52,65 +54,67 @@ function createData(
 const rows = [createData("Frozen yoghurt", 159, 6.0, 24, 4.0, 78, 67)];
 
 export default function lechones() {
+  const [showForm, setShowForm] = useState<boolean>(false);
+
+  const handleClick = function(){
+    setShowForm(!showForm)
+  }
+
   const router = useRouter();
 
   return (
     <>
       <main>
-        <div className="max-w-5xl m-auto mt-8 px-5">
-          <div className="flex justify-between">
-            <h1 className="text-2xl font-bold mb-5">Control de Lechones</h1>
-            <Button variant="contained">
-              <AddIcon />
-              <small className="text-black ">Registrar Camada</small>
-            </Button>
-          </div>
-        </div>
+        <HeaderGestion
+          title="Control de lechones"
+          textButton="Registrar camada"
+          setShowForm={handleClick}
+        />
 
         <div className="max-w-5xl m-auto mt-8 px-5">
-          <div className="bg-white rounded-xl shadow-xl/20 inset-shadow-sm p-6 mb-8">
-            <h2 className="font-semibold mb-4">Nueva Camada</h2>
-            <form className="grid grid-cols-2 gap-6">
-              <TextField
-                label="Madre (ID)"
-                placeholder="CRD-2023-045"
-                variant="outlined"
-                size="small"
-                fullWidth
-              />
-              <TextField
-                label="Padre (ID)"
-                placeholder="SEM-001 (Thor)"
-                variant="outlined"
-                size="small"
-                fullWidth
-              />
-              <TextField
-                label="Fecha de Nacimiento"
-                type="date"
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                size="small"
-                fullWidth
-              />
-              <TextField
-                label="Número de lechones"
-                placeholder="Ej: 12"
-                type="number"
-                variant="outlined"
-                size="small"
-                fullWidth
-              />
-              <TextField
-                label="Peso Promedio (Kg)"
-                placeholder="Ej: 13"
-                type="number"
-                variant="outlined"
-                size="small"
-                fullWidth
-              />
-            </form>
-          </div>
+            { showForm && <form className="bg-white rounded-xl shadow-xl/20 inset-shadow-sm p-6 mb-8">
+              <h2 className="font-semibold mb-4">Nueva Camada</h2>
+              <section className="grid grid-cols-2 gap-6">
+                <TextField
+                  label="Madre (ID)"
+                  placeholder="CRD-2023-045"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                />
+                <TextField
+                  label="Padre (ID)"
+                  placeholder="SEM-001 (Thor)"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                />
+                <TextField
+                  label="Fecha de Nacimiento"
+                  type="date"
+                  InputLabelProps={{ shrink: true }}
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                />
+                <TextField
+                  label="Número de lechones"
+                  placeholder="Ej: 12"
+                  type="number"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                />
+                <TextField
+                  label="Peso Promedio (Kg)"
+                  placeholder="Ej: 13"
+                  type="number"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                />
+              </section>
+            </form>}
           <div className="bg-white rounded-xl shadow-xl/20 inset-shadow-sm p-6 mb-8">
             <h2 className="font-semibold mb-4">
               Curva de crecimiento - Lechones

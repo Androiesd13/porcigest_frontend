@@ -4,36 +4,59 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Chip,
+  Tooltip,
+  IconButton,
 } from "@mui/material";
 
-import { styled } from '@mui/material/styles';
+import {
+  DeleteRounded,
+  CreateRounded,
+  VisibilityRounded,
+} from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     color: theme.palette.background.default,
-    fontWeight: "900"
+    fontWeight: "900",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
+    fontWeight: "900",
   },
 }));
 
 function createData(
   codigo: string,
-  fecha: string,
+  edad: number,
   raza: string,
   estado: string
 ) {
-  return { codigo, fecha, raza, estado };
+  return { codigo, edad, raza, estado };
 }
 
 const rows = [
-  createData("c0001", "12-01-12", "cualquiera", "activa"),
-  createData("c0002", "12-01-13", "cualquiera", "lactancia"),
+  createData("c0001", 2, "cualquiera", "activa"),
+  createData("c0002", 3, "cualquiera", "lactancia"),
 ];
 
-export default function () {
+// edad => fechaActual - fechaNacimiento
+//
+
+const colums = [
+  "fecha",
+  "edad",
+  "raza",
+  "estado",
+  "último parto",
+  "n° partos",
+  "proximo_evento",
+  "acciones",
+];
+
+export default function TableCerdas() {
   return (
     <section className="shadow-lg mt-3 py-3 px-4 rounded-sm">
       <h3 className="text-bold">Cerdas Reproductoras activas</h3>
@@ -41,14 +64,14 @@ export default function () {
         <TableHead>
           <TableRow>
             <StyledTableCell>Codigo</StyledTableCell>
-            <StyledTableCell align="right">Fecha</StyledTableCell>
-            <StyledTableCell align="right">Edad</StyledTableCell>
-            <StyledTableCell align="right">Raza</StyledTableCell>
-            <StyledTableCell align="right">Estado</StyledTableCell>
-            <StyledTableCell align="right">Último parto</StyledTableCell>
-            <StyledTableCell align="right">N° Partos</StyledTableCell>
-            <StyledTableCell align="right">Proximo Evento</StyledTableCell>
-            <StyledTableCell align="right">Acciones</StyledTableCell>
+            <StyledTableCell align="left">Edad</StyledTableCell>
+            <StyledTableCell align="left">Edad</StyledTableCell>
+            <StyledTableCell align="left">Raza</StyledTableCell>
+            <StyledTableCell align="left">Estado</StyledTableCell>
+            <StyledTableCell align="left">Último parto</StyledTableCell>
+            <StyledTableCell align="left">N° Partos</StyledTableCell>
+            <StyledTableCell align="left">Proximo Evento</StyledTableCell>
+            <StyledTableCell align="left">Acciones</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,12 +80,35 @@ export default function () {
               key={row.codigo}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row">
                 {row.codigo}
+              </StyledTableCell>
+              <TableCell align="left">{row.edad}</TableCell>
+              <TableCell align="left">{row.raza}</TableCell>
+              <TableCell align="left">
+                <Chip label={row.estado} />
               </TableCell>
-              <TableCell align="right">{row.fecha}</TableCell>
-              <TableCell align="right">{row.raza}</TableCell>
-              <TableCell align="right">{row.estado}</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell align="center">
+                <Tooltip title="Editar">
+                  <IconButton color="success">
+                    <CreateRounded />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Detalles">
+                  <IconButton color="info">
+                    <VisibilityRounded />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Eliminar">
+                  <IconButton color="error">
+                    <DeleteRounded />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

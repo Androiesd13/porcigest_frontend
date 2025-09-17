@@ -1,13 +1,5 @@
 "use client";
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import {SportsEsportsRounded, SavingsRounded} from '@mui/icons-material';
-import SavingsIcon from '@mui/icons-material/Savings';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import MaleIcon from '@mui/icons-material/Male';
-import ScaleIcon from '@mui/icons-material/Scale';
-import StrollerIcon from '@mui/icons-material/Stroller';
-import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button, TextField, Snackbar, Alert } from '@mui/material';
 
@@ -22,6 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import HeaderGestion from '@/ui/utils/HeaderGestion';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -59,10 +52,13 @@ const initialRows = [
 ];
 
 export default function EngordePage() {
-  const router = useRouter();
+  
   const [rows, setRows] = React.useState(initialRows);
 
   const [showForm, setShowForm] = React.useState(false);
+  function handleClick(){
+    setShowForm(!showForm)
+  }
 
   const [lote, setLote] = React.useState("");
   const [cantidad, setCantidad] = React.useState("");
@@ -103,18 +99,7 @@ export default function EngordePage() {
   return (
     <>
       <main>
-        <div className="max-w-5xl m-auto mt-8 px-5">
-          <div className="flex justify-between">
-            <h1 className="text-2xl font-bold mb-5">Gestión de cerdos de engorde</h1>
-            <Button
-              onClick={() => setShowForm(!showForm)}
-              className="bg-[#A5C9CA] h-10 min-w-[205px] rounded-md text-center ring"
-            >
-              <AddIcon className="mb-1 text-black" />
-              <small className="text-black">Nuevo Lote</small>
-            </Button>
-          </div>
-
+       <HeaderGestion title='Gestion de cerdos de engorde' textButton='Nuevo lote' setShowForm={handleClick}/>
           {showForm && (
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 mt-5">
               <h2 className="text-xl font-semibold mb-4">Registrar nuevo lote</h2>
@@ -170,7 +155,6 @@ export default function EngordePage() {
               </Table>
             </TableContainer>
           </div>
-        </div>
       </main>
 
       {/* Snackbar */}

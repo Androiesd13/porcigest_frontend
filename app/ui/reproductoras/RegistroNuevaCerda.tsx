@@ -4,32 +4,43 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
-  Button
+  Button,
 } from "@mui/material";
 
-export default function () {
+export default function ({setShowForm}: {setShowForm : (value: boolean)=> void}) {
   return (
-    <form action="" className={`py-3 px-4 rounded-sm shadow-lg gap-2 flex flex-col`}>
+    <form
+      action=""
+      className={`py-6 px-4 rounded-sm shadow-lg gap-2 flex flex-col`}
+    >
       <h2 className="text-md font-bold">Registro nueva cerda</h2>
       <section className="flex justify-between">
         <TextField label="Codigo" size="small" placeholder="Ej: CRD-2024-001" />
         <TextField size="small" placeholder="Ej: CRD-2024-001" type="date" />
 
-        <FormControl sx={{minWidth: "200px"}}>
+        <FormControl sx={{ minWidth: "200px" }}>
           <InputLabel id="raza">Raza</InputLabel>
           <Select label="Raza" size="small" labelId="raza">
             <MenuItem value={"yorkshire"}>Yorkshire</MenuItem>
           </Select>
         </FormControl>
 
-        <FormControl sx={{minWidth: "200px"}}>
+        <FormControl sx={{ minWidth: "200px" }}>
           <InputLabel id="estado">Estado</InputLabel>
-          <Select label="Estado reproductivo" size="small" labelId="estado">
+          <Select label="Estado" size="small" labelId="estado">
             <MenuItem value={"vacia"}>Vacia</MenuItem>
           </Select>
         </FormControl>
       </section>
-      <Button variant="contained" sx={{alignSelf: "start", marginTop: "14px"}}>Guardar</Button>
+      <div id="acctions" className="flex gap-1 mt-5">
+        <Button
+          variant="contained"
+          sx={{ alignSelf: "start"}}
+        >
+          Guardar
+        </Button>
+        <Button sx={{color: "#395b64"}} onClick={()=> setShowForm(false)}>Cancelar</Button>
+      </div>
     </form>
   );
 }
