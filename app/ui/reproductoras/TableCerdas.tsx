@@ -14,8 +14,10 @@ import {
   CreateRounded,
   VisibilityRounded,
 } from "@mui/icons-material";
+
 import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material";
+import { RegistroCerda, type FormData } from "../../../lib/definitions";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -28,23 +30,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-function createData(
-  codigo: string,
-  edad: number,
-  raza: string,
-  estado: string
-) {
-  return { codigo, edad, raza, estado };
-}
-
-const rows = [
-  createData("c0001", 2, "cualquiera", "activa"),
-  createData("c0002", 3, "cualquiera", "lactancia"),
-];
-
-// edad => fechaActual - fechaNacimiento
-//
-
 const columns = [
   { key: "id", label: "ID" },
   { key: "edad", label: "Edad" },
@@ -52,22 +37,28 @@ const columns = [
   { key: "ultimo_parto", label: "Ultimo Parto " },
   { key: "n_partos", label: "N° Partos" },
   { key: "prox_evento", label: "Proximo Evento" },
-  { key:"acciones", label: "Acciones"}
+  { key: "acciones", label: "Acciones" },
 ];
 
-
-export default function TableCerdas() {
+export default function TableCerdas({
+  data,
+}: {
+  data: RegistroCerda[] | undefined;
+}) {
+  // crear un estado para los registros
   return (
-    <section className="shadow-lg mt-3 py-3 px-4 rounded-sm">
+    <section className="shadow-lg mt-3 py-6 px-4 rounded-sm">
       <h3 className="text-bold">Cerdas Reproductoras activas</h3>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {columns.map(col => <StyledTableCell align="left">{col.label}</StyledTableCell>)}
+            {columns.map((col) => (
+              <StyledTableCell align="left">{col.label}</StyledTableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data?.map((row) => (
             <TableRow
               key={row.codigo}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -103,6 +94,7 @@ export default function TableCerdas() {
           ))}
         </TableBody>
       </Table>
+      {data?.length === 0 && <p className="text-center mt-4">No hay cerdas registradas</p>}
     </section>
   );
 }

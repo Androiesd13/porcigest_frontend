@@ -3,6 +3,7 @@
 import Grafico from "@/ui/dashboard/Grafico";
 import HeaderGestion from "@/ui/utils/HeaderGestion";
 import NuevoTratamiento from "@/ui/veterinaria/NuevoTratamiento";
+import TableVacunacion from "@/ui/veterinaria/TableVacunación";
 import { useState } from "react";
 
 export default function Veterinaria() {
@@ -24,7 +25,7 @@ export default function Veterinaria() {
         <Grafico title="Vacunaciones por mes"/>
         <Grafico title="Tipos de tratamiento"/>
       </aside>
-      
+      <TableVacunacion/>
     </>
   );
 }
