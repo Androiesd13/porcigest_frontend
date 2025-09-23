@@ -71,7 +71,7 @@ export default function lechones() {
           setShowForm={handleClick}
         />
 
-        <div className="max-w-5xl m-auto mt-8 px-5">
+        <div className="max-w-5xl m-auto mt-8">
             { showForm && <form className="bg-white rounded-xl shadow-xl/20 inset-shadow-sm p-6 mb-8">
               <h2 className="font-semibold mb-4">Nueva Camada</h2>
               <section className="grid grid-cols-2 gap-6">
@@ -151,7 +151,7 @@ export default function lechones() {
                         {row.Idcamda}
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        {row.FechaNac.toLocaleString()}
+                        {row.FechaNac.toLocaleDateString()}
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         {row.Madre}

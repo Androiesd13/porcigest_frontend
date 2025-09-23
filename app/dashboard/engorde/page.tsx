@@ -1,10 +1,5 @@
 "use client";
-<<<<<<< HEAD
-
-import AddIcon from '@mui/icons-material/Add';
-=======
 import { useRouter } from 'next/navigation';
->>>>>>> refs/remotes/origin/main
 import EditIcon from '@mui/icons-material/Edit';
 import { Button, TextField, Snackbar, Alert, LinearProgress } from '@mui/material';
 
@@ -57,10 +52,7 @@ const initialRows = [
 ];
 
 export default function EngordePage() {
-<<<<<<< HEAD
-=======
   
->>>>>>> refs/remotes/origin/main
   const [rows, setRows] = React.useState(initialRows);
 
   const [editIndex, setEditIndex] = React.useState<number | null>(null);
@@ -127,25 +119,7 @@ export default function EngordePage() {
   return (
     <>
       <main>
-<<<<<<< HEAD
-        <div className="max-w-5xl m-auto mt-8 px-5">
-          <div className="flex justify-between">
-            <h1 className="text-2xl font-bold mb-5">Gestión de cerdos de engorde</h1>
-            <Button
-              onClick={() => {
-                setShowForm(!showForm);
-                setEditIndex(null); 
-              }}
-              className="bg-[#A5C9CA] h-10 min-w-[205px] rounded-md text-center ring"
-            >
-              <AddIcon className="mb-1 text-black" />
-              <small className="text-black">Nuevo Lote</small>
-            </Button>
-          </div>
-
-=======
        <HeaderGestion title='Gestion de cerdos de engorde' textButton='Nuevo lote' setShowForm={handleClick}/>
->>>>>>> refs/remotes/origin/main
           {showForm && (
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 mt-5">
               <h2 className="text-xl font-semibold mb-4">
