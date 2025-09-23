@@ -10,8 +10,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import theme from "@/theme/theme";
+import Link from "next/link";
 
 const { main } = theme.palette.primary;
 
@@ -138,12 +140,13 @@ export default function Login() {
           <div className="mt-4 flex justify-between">
             <a className="text-sm/6">No tienes una cuenta?</a>
             <Button variant="contained" color="secondary">
-              Crear
+              <Link href="/registro"> Crear <AddCircleIcon/></Link>
             </Button>
           </div>
           <div className="m-auto mt-6">
             <Button variant="contained" color="secondary" type="submit">
-              Iniciar Sesion
+              <Link href="/dashboard"
+              > Iniciar Sesion </Link>
             </Button>
           </div>
         </form>
