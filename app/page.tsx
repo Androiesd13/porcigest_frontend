@@ -1,11 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Home() {
   return (
     <>
       <header className="max-w-4xl mx-auto py-4 flex items-center justify-between ">
         <div className="logo flex gap-2 items-center">
-          <img src="" alt="" className="bg-primary w-10 h-10 rounded-full"/>
+          <Image src="/logo.jpg" width={80} height={80} alt="logo de porcigest" className="rounded-full" />
           <h3 className="text-2xl">Porcigest</h3>
         </div>
         <nav>
