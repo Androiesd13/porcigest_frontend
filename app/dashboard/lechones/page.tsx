@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 
 import { Button, TextField } from "@mui/material";
 
@@ -41,17 +40,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 function createData(
   Idcamda: string,
-  FechaNac: number,
+  FechaNac: Date,
   Madre: number,
+  Padre: number,
   lechones: number,
   peso: number,
   mortalidad: number,
   estados: number
 ) {
-  return { Idcamda, FechaNac, Madre, lechones, peso, mortalidad, estados };
+  return { Idcamda, FechaNac, Madre, Padre, lechones, peso, mortalidad, estados };
 }
 
-const rows = [createData("Frozen yoghurt", 159, 6.0, 24, 4.0, 78, 67)];
+const rows = [createData("Frozen yoghurt", new Date(), 6.0,3, 24, 4.0, 78, 67)];
 
 export default function lechones() {
   const [showForm, setShowForm] = useState<boolean>(false);
@@ -60,7 +60,7 @@ export default function lechones() {
     setShowForm(!showForm)
   }
 
-  const router = useRouter();
+  const [editIndex, setEditIndex] = React.useState<number | null>(null);
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function lechones() {
           setShowForm={handleClick}
         />
 
-        <div className="max-w-5xl m-auto mt-8 px-5">
+        <div className="max-w-5xl m-auto mt-8">
             { showForm && <form className="bg-white rounded-xl shadow-xl/20 inset-shadow-sm p-6 mb-8">
               <h2 className="font-semibold mb-4">Nueva Camada</h2>
               <section className="grid grid-cols-2 gap-6">
@@ -151,7 +151,7 @@ export default function lechones() {
                         {row.Idcamda}
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        {row.FechaNac}
+                        {row.FechaNac.toLocaleDateString()}
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         {row.Madre}

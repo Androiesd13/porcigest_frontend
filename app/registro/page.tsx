@@ -11,6 +11,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import Link from "next/link";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import LoginIcon from '@mui/icons-material/Login';
 
 interface FormData {
   nombre: string;
@@ -47,13 +50,11 @@ export default function Registro() {
   // Estados para los errores de validación
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // Estado para Snackbar
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const togglePassword = () => setShowPassword((prev) => !prev);
   const toggleConfirm = () => setShowConfirm((prev) => !prev);
 
-  // Función para manejar cambios en los inputs
   const handleInputChange =
     (field: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
@@ -62,7 +63,6 @@ export default function Registro() {
         [field]: value,
       }));
 
-      // Limpiar error cuando el usuario empiece a escribir
       if (errors[field]) {
         setErrors((prev) => ({
           ...prev,
@@ -133,7 +133,6 @@ export default function Registro() {
         confirmPassword: "",
       });
 
-      // Redirigir al login (página raíz) después de 2 segundos
       setTimeout(() => {
         router.push("/");
       }, 2000);
@@ -259,7 +258,7 @@ export default function Registro() {
               type="submit"
               className="bg-[#A5C9CA] text-[#2C3333] px-6 py-2 rounded-lg hover:bg-[#395B64] hover:text-white transition"
             >
-              Registrar
+              <Link href="/"> Registrar <PersonAddIcon/></Link>
             </button>
           </div>
 
@@ -267,10 +266,8 @@ export default function Registro() {
             <span className="text-sm text-gray-600">¿Ya tienes cuenta?</span>
             <button
               type="button"
-              onClick={() => router.push("/")}
-              className="bg-[#395B64] text-white px-4 py-1 rounded-lg hover:bg-[#2C3333] transition"
-            >
-              Iniciar Sesión
+              className="bg-[#395B64] text-white px-4 py-1 rounded-lg hover:bg-[#2C3333] transition">
+              <Link href="/login"> Iniciar Sesión <LoginIcon/> </Link>
             </button>
           </div>
         </form>

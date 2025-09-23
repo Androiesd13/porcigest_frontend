@@ -30,4 +30,20 @@ h1, h2, h3, h4{
 li{
   font-size: 17px;
 }
+.Carousel.carousel-slider {
+  box-shadow: none !important;
+}
 
+.Carousel .slider-wrapper {
+  box-shadow: none !important;
+}
+
+.Carousel .slide {
+  box-shadow: none !important;
+}
+
+.Carousel.carousel-slider::before,
+.Carousel.carousel-slider::after {
+  content: none !important;
+  display: none !important;
+}
