@@ -1,6 +1,10 @@
 "use client";
+<<<<<<< HEAD
 
 import AddIcon from '@mui/icons-material/Add';
+=======
+import { useRouter } from 'next/navigation';
+>>>>>>> refs/remotes/origin/main
 import EditIcon from '@mui/icons-material/Edit';
 import { Button, TextField, Snackbar, Alert, LinearProgress } from '@mui/material';
 
@@ -15,6 +19,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import HeaderGestion from '@/ui/utils/HeaderGestion';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -52,10 +57,17 @@ const initialRows = [
 ];
 
 export default function EngordePage() {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> refs/remotes/origin/main
   const [rows, setRows] = React.useState(initialRows);
 
   const [editIndex, setEditIndex] = React.useState<number | null>(null);
   const [showForm, setShowForm] = React.useState(false);
+  function handleClick(){
+    setShowForm(!showForm)
+  }
 
   const [lote, setLote] = React.useState("");
   const [cantidad, setCantidad] = React.useState("");
@@ -115,6 +127,7 @@ export default function EngordePage() {
   return (
     <>
       <main>
+<<<<<<< HEAD
         <div className="max-w-5xl m-auto mt-8 px-5">
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold mb-5">Gestión de cerdos de engorde</h1>
@@ -130,6 +143,9 @@ export default function EngordePage() {
             </Button>
           </div>
 
+=======
+       <HeaderGestion title='Gestion de cerdos de engorde' textButton='Nuevo lote' setShowForm={handleClick}/>
+>>>>>>> refs/remotes/origin/main
           {showForm && (
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 mt-5">
               <h2 className="text-xl font-semibold mb-4">
@@ -216,7 +232,6 @@ export default function EngordePage() {
               </Table>
             </TableContainer>
           </div>
-        </div>
       </main>
 
       <Snackbar
