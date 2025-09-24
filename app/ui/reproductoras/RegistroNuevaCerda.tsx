@@ -43,7 +43,7 @@ export default function ({ setShowForm, onAdd }: FormProps) {
       onSubmit={handleSubmit}
     >
       <h2 className="text-md font-bold">Registro nueva cerda</h2>
-      <section className="flex justify-between">
+      <section className="flex gap-3">
         <TextField
           label="Codigo"
           placeholder="Ej: CRD-2024-001"
@@ -58,14 +58,14 @@ export default function ({ setShowForm, onAdd }: FormProps) {
             console.log(`Fecha seleccionada: ${newValue?.format("DD/MM/YYYY")}`)
           }}
         />
-        <FormControl sx={{ minWidth: "200px" }}>
+        <FormControl sx={{width: "auto"}}>
           <InputLabel id="raza">Raza</InputLabel>
           <Select label="Raza" labelId="raza" value={raza} onChange={e => setRaza(e.target.value)}>
             <MenuItem value={"yorkshire"}>Yorkshire</MenuItem>
           </Select>
         </FormControl>
 
-        <FormControl sx={{ minWidth: "200px" }}>
+        <FormControl>
           <InputLabel id="estado">Estado</InputLabel>
           <Select label="Estado" labelId="estado" value={estado} onChange={e => setEstado(e.target.value)}>
             <MenuItem value={"vacia"}>Vacia</MenuItem>

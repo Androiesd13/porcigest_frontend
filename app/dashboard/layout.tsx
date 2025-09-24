@@ -1,5 +1,6 @@
 import Header from "../ui/dashboard/Header";
 import NavBar from "../ui/dashboard/NavBar"
+import NavBarMobile from '../ui/dashboard/NavBarMobile';
 
 export default function LayoutDashboard({
   children,
@@ -10,7 +11,8 @@ export default function LayoutDashboard({
     <>
       <Header />
       <NavBar/>
-      <main className="max-w-(--widthApp) mx-auto">{children}</main>
+      <NavBarMobile/>
+      <main className="md:max-w-(--widthApp) mx-auto">{children}</main>
     </>
   );
 }

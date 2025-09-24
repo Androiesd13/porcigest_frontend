@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.className} antialiased min-h-screen`}>
+      <body className={`px-3 py-4 ${quicksand.className} md:${quicksand.className} antialiased min-h-screen`}>
         <ThemeRegistry>
           <ClientWrapper>{children}</ClientWrapper>
         </ThemeRegistry>

@@ -5,7 +5,7 @@ const { main, contrastText } = theme.palette.secondary;
 
 const CardsSementales = () => {
   return (
-    <section id="cards-sementales" className="grid grid-cols-3 gap-2 mt-4">
+    <section id="cards-sementales" className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-4">
       <Card sx={{ minWidth: 200, backgroundColor: main, color: contrastText }}>
         <CardContent>
           <h3 className="text-xs uppercase font-bold">Sementales Activos</h3>

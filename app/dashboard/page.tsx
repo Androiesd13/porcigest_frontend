@@ -15,7 +15,7 @@ export default function Dashboard() {
   return (
     <>
       <h1 className="mt-4 text-2xl font-bold">Panel de control general</h1>
-      <section id="cards" className="grid grid-cols-4 gap-2 mt-4">
+      <section id="cards" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-4">
         <Card
           sx={{ minWidth: 200, backgroundColor: main, color: contrastText }}
         >
@@ -51,7 +51,7 @@ export default function Dashboard() {
       </section>
       <section
         id="actions"
-        className="grid grid-cols-4 justify-items-center gap-2 mt-4"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center gap-2 mt-4"
       >
         <Button sx={{ maxWidth: "200px", color: "#395b64"}}>
           <AddRounded />
@@ -71,7 +71,7 @@ export default function Dashboard() {
         </Button>
       </section>
       <GraficoPoblacion />
-      <aside className="flex gap-2 max-w-5xl">
+      <aside className="flex flex-col md:flex-row gap-2 max-w-5xl">
         <Grafico title="Distribución por categoría" />
         <Grafico title="Rendimiento de engorde" />
       </aside>

@@ -7,17 +7,14 @@ import {
   ScaleRounded,
   MedicalServicesRounded,
   StrollerRounded,
-  ShuffleRounded, 
+  ShuffleRounded,
 } from "@mui/icons-material";
 
 import ItemNav from "../utils/ItemNav";
-interface Props {
-  itemSelected: number;
-}
 
 export default function NavBar() {
   return (
-    <nav className={`max-w-(--widthApp) mx-auto bg-secondary rounded-sm`}>
+    <nav className="hidden md:block max-w-(--widthApp) mx-auto bg-secondary rounded-sm">
       <ul className="flex justify-around">
         <ItemNav
           label="Dashboard"

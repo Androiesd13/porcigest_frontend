@@ -9,8 +9,8 @@ interface HeaderProps{
 
 const HeaderGestion = ({title, textButton, setShowForm} : HeaderProps) => {
   return (
-    <header className="flex justify-between my-4">
-      <h1 className="text-2xl">{title}</h1>
+    <header className="flex justify-between my-4 items-center">
+      <h1 className="text-xl md:text-2xl">{title}</h1>
       <Button
         variant="contained"
         sx={{

@@ -3,7 +3,6 @@ import Image from "next/image";
 
 
 import ImageCarousel from "./ui/ImageCarousel/ImageCarousel";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -15,7 +14,7 @@ export default function Home() {
         </div>
         <nav>
           <ul className="flex gap-4 items-center">
-            <li className="uppercase"><Link href="/About" className="hover:underline">About us</Link></li>
+            <li className="uppercase"><Link href="/about" className="hover:underline">About us</Link></li>
             <li className="uppercase"><Link href="/login" className="hover:underline">Log in</Link></li>
             <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
           </ul>

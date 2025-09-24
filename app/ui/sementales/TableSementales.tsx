@@ -60,7 +60,7 @@ const TableSementales = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {columns.map((col) => <StyledTableCell align="left">{col.label}</StyledTableCell>)}
+            {columns.map((col) => <StyledTableCell align="left" key={col.key}>{col.label}</StyledTableCell>)}
           </TableRow>
         </TableHead>
         <TableBody>

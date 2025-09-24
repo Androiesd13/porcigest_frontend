@@ -23,7 +23,7 @@ const RegistroNuevoSemental = ({
     >
       <h2 id="title">Registro nuevo semental</h2>
       <form action="" className="flex flex-col gap-2">
-        <div id="fields" className="flex justify-between">
+        <div id="fields" className="flex justify-between gap-2">
           <TextField label="Codigo/ID" />
           <TextField label="Nombre" />
           <TextField label="Raza" />
