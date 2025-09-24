@@ -29,9 +29,20 @@ const RegistroNuevoSemental = ({
           <TextField label="Raza" />
           <DatePicker label="Fecha de nacimiento" />
         </div>
-        <div id="actions" className="mt-3">
-          <Button variant="contained">Guardar</Button>
-          <Button onClick={() => setShowForm(false)}>Cancelar</Button>
+        <div id="actions" className="flex mt-3 gap-3">
+          <Button variant="contained"  
+                sx={{ alignSelf: "start", '&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}}>
+              Guardar
+          </Button>
+
+          <Button onClick={() => setShowForm(false)} 
+                sx={{ color: "#171717",'&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}}>
+              Cancelar
+          </Button>
         </div>
       </form>
     </section>

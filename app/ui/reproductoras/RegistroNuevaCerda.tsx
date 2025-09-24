@@ -72,11 +72,16 @@ export default function ({ setShowForm, onAdd }: FormProps) {
           </Select>
         </FormControl>
       </section>
-      <div id="actions" className="flex gap-1 mt-5">
-        <Button variant="contained" sx={{ alignSelf: "start" }} type="submit">
+      <div id="actions" className="flex gap-3 mt-5">
+        <Button variant="contained" sx={{ alignSelf: "start", '&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}} type="submit">
           Guardar
         </Button>
-        <Button sx={{ color: "#395b64" }} onClick={() => setShowForm(false)}>
+
+        <Button sx={{ color: "#171717",'&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}} onClick={() => setShowForm(false)}>
           Cancelar
         </Button>
       </div>

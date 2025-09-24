@@ -3,9 +3,10 @@ import Link from "next/link"
 export default function aboutUs(){
     return(
         <>
-            <header className="max-w-4xl mx-auto py-4 flex items-center justify-between ">
+            <header className="max-w-4xl mx-auto py-4 bg-[#EAE7DD] px-4 rounded">
+            <div className="flex items-center justify-between">
                 <div className="logo flex gap-2 items-center">
-                    <img src="" alt="" className="bg-primary w-10 h-10 rounded-full"/>
+                    <img src="/logo.jpg" alt="logo de porciGest" className="bg-primary w-10 h-10 rounded-full"/>
                     <h3 className="text-2xl">Porcigest</h3>
                 </div>
             <nav>
@@ -13,9 +14,10 @@ export default function aboutUs(){
                     <li className="uppercase"><Link href="/" className="hover:underline">Home</Link></li>
                     <li className="uppercase"><Link href="/About" className="hover:underline">About us</Link></li>
                     <li className="uppercase"><Link href="/login" className="hover:underline">Login</Link></li>
-                    <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
+                    <li className="uppercase bg-accent px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
                 </ul>
             </nav>
+            </div>
             </header>
             <main>
                 <div className="max-w-5xl m-auto mt-8 px-5">

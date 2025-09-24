@@ -15,7 +15,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import theme from "@/theme/theme";
 import Link from "next/link";
 
-const { main } = theme.palette.primary;
+const { main } = theme.palette.secondary;
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -79,11 +79,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-full">
+    <div className="flex min-h-full ">
       <main className="min-w-lg m-auto mt-20 py-10 px-4 bg-stone-100 rounded-md shadow-lg">
         <div className="text-center flex flex-col gap-3">
-          <h2 className="text-4xl text-[#395b64]">Hello Welcome!</h2>
-          <h2>Inicia Sesion en PorciGest</h2>
+          <h2 className="text-4xl text-[#99775C]">Hello Welcome!</h2>
+          <h2 >Inicia Sesion en PorciGest</h2>
         </div>
 
         <form
@@ -91,7 +91,7 @@ export default function Login() {
           onSubmit={handleSubmit}
         >
           <div className="flex flex-col gap-1 mb-6">
-            <FormLabel sx={{ fontWeight: 600, color: main }}>
+            <FormLabel sx={{ fontWeight: 600, color:"#black" }}>
               Numero de documento
             </FormLabel>
             <TextField
@@ -109,7 +109,7 @@ export default function Login() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <FormLabel sx={{ fontWeight: 600, color: main }}>
+            <FormLabel sx={{ fontWeight: 600, color: "#black" }}>
               Contraseña
             </FormLabel>
             <OutlinedInput
@@ -139,12 +139,22 @@ export default function Login() {
           </div>
           <div className="mt-4 flex justify-between">
             <a className="text-sm/6">No tienes una cuenta?</a>
-            <Button variant="contained" color="secondary">
+            <Button variant="contained" color="secondary" 
+            sx={{
+                '&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },
+              }}>
               <Link href="/registro"> Crear <AddCircleIcon/></Link>
             </Button>
           </div>
           <div className="m-auto mt-6">
-            <Button variant="contained" color="secondary" type="submit">
+            <Button variant="contained" color="secondary" type="submit"
+            sx={{
+                '&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },
+              }}>
               <Link href="/dashboard"
               > Iniciar Sesion </Link>
             </Button>

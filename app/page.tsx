@@ -6,8 +6,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <header className="max-w-4xl mx-auto py-4 flex items-center justify-between ">
-        <div className="logo flex gap-2 items-center">
+      <header className="max-w-4xl mx-auto py-4 bg-[#EAE7DD] px-4 rounded">
+      <div className="flex items-center justify-between">
+        <div className="logo flex gap-2 items-center ">
           <Image src="/logo.jpg" alt="logo de porcigest" width={80} height={80} className="bg-primary rounded-full"/>
           <h3 className="text-2xl">Porcigest</h3>
         </div>
@@ -15,9 +16,10 @@ export default function Home() {
           <ul className="flex gap-4 items-center">
             <li className="uppercase"><Link href="/About" className="hover:underline">About us</Link></li>
             <li className="uppercase"><Link href="/login" className="hover:underline">Log in</Link></li>
-            <li className="uppercase bg-secondary px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
+            <li className="uppercase bg-accent px-2 py-1 rounded font-medium hover:bg-secondary-dark"><Link href="/registro">Sing up</Link></li>
           </ul>
         </nav>
+        </div>
       </header>
       <main className="max-w-4xl m-auto mt-8 text-center">
         <h1 className="text-6xl mb-3">Bienvenido a Porcigest</h1>

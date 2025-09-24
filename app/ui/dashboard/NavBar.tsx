@@ -17,7 +17,7 @@ interface Props {
 
 export default function NavBar() {
   return (
-    <nav className={`max-w-(--widthApp) mx-auto bg-secondary rounded-sm`}>
+    <nav className={`max-w-(--widthApp) mx-auto bg-primary rounded-sm`}>
       <ul className="flex justify-around">
         <ItemNav
           label="Dashboard"

@@ -133,8 +133,21 @@ export default function EngordePage() {
                 <TextField label="Consumo/día" type="number" value={consumo} onChange={(e) => setConsumo(e.target.value)} fullWidth />
               </div>
               <div className="flex justify-end mt-4 gap-3">
-                <Button onClick={() => { setShowForm(false); setEditIndex(null); }}>Cancelar</Button>
-                <Button variant="contained" onClick={handleSave}>
+                <Button color='secondary' onClick={() => { setShowForm(false); setEditIndex(null); }}
+                  sx={{
+                      color: "#171717",
+                      '&:hover': {
+                        backgroundColor: '#D3B8A1',
+                      },
+                    }}>
+                  Cancelar
+                </Button>
+                <Button  variant="contained" onClick={handleSave} 
+                  sx={{
+                  '&:hover': {
+                    backgroundColor: '#D3B8A1',
+                  },
+                  }}>
                   {editIndex !== null ? "Actualizar" : "Guardar"}
                 </Button>
               </div>
@@ -215,7 +228,7 @@ export default function EngordePage() {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert onClose={() => setOpenSnackbar(false)} severity="error" sx={{ width: "100%" }}>
-          Debes completar al menos el nombre del lote y la cantidad
+          Debes completar al todos los campos
         </Alert>
       </Snackbar>
     </>

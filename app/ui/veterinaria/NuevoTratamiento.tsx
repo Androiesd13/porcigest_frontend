@@ -45,9 +45,19 @@ const NuevoTratamiento = ({
           label="Observaciones"
         />
       </form>
-      <div id="actions">
-        <Button variant="contained">Guardar</Button>
-        <Button onClick={()=> setOpenForm(false)}>Cancelar</Button>
+      <div id="actions" className="flex gap-3">
+        <Button variant="contained"
+            sx={{ alignSelf: "start", '&:hover': {
+              backgroundColor: '#D3B8A1',
+            },}}>
+          Guardar
+        </Button>
+        <Button onClick={()=> setOpenForm(false)}
+              sx={{ color: "#171717",'&:hover': {
+                backgroundColor: '#D3B8A1',
+              },}}>
+            Cancelar
+          </Button>
       </div>
     </section>
   );
