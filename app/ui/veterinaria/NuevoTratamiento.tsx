@@ -20,8 +20,8 @@ const NuevoTratamiento = ({
       className="py-6 px-4 rounded-sm shadow-lg gap-2 flex flex-col"
     >
       <h3 id="title">Registrar Tratamiento/Vacunación</h3>
-      <form action="" className="grid grid-cols-3 gap-2">
-        <FormControl sx={{ minWidth: "250px" }}>
+      <form action="" className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <FormControl sx={{ Width: "250px" }}>
           <InputLabel id="tipo_intervencion">Tipo de intervención</InputLabel>
           <Select label="tipo_intervencion" labelId="tipo_intervencion">
             <MenuItem value="vacunación">Vacunación</MenuItem>
@@ -41,13 +41,23 @@ const NuevoTratamiento = ({
           multiline
           rows="3"
           fullWidth
-          sx={{ gridColumn: "1/4" }}
+          sx={{ gridColumn: {xs: "1/1", md: "1/4"}}}
           label="Observaciones"
         />
       </form>
-      <div id="actions">
-        <Button variant="contained">Guardar</Button>
-        <Button onClick={()=> setOpenForm(false)}>Cancelar</Button>
+      <div id="actions" className="flex gap-3">
+        <Button variant="contained"
+            sx={{ alignSelf: "start", '&:hover': {
+              backgroundColor: '#D3B8A1',
+            },}}>
+          Guardar
+        </Button>
+        <Button onClick={()=> setOpenForm(false)}
+              sx={{ color: "#171717",'&:hover': {
+                backgroundColor: '#D3B8A1',
+              },}}>
+            Cancelar
+          </Button>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ export default function Veterinaria() {
         setShowForm={handleClick}
       />
       {openForm && <NuevoTratamiento setOpenForm={setOpenForm}/>}
-      <aside id="graphics" className="flex gap-2">
+      <aside id="graphics" className="flex flex-col md:flex-row gap-2">
         <Grafico title="Vacunaciones por mes"/>
         <Grafico title="Tipos de tratamiento"/>
       </aside>

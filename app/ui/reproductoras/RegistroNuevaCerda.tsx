@@ -43,12 +43,13 @@ export default function ({ setShowForm, onAdd }: FormProps) {
       onSubmit={handleSubmit}
     >
       <h2 className="text-md font-bold">Registro nueva cerda</h2>
-      <section className="flex gap-3">
+      <section className="flex flex-col sm:flex-row gap-3">
         <TextField
           label="Codigo"
           placeholder="Ej: CRD-2024-001"
           value={codigo}
           onChange={(e) => setCodigo(e.target.value)}
+          sx={{flex: 1}}
         />
         <DatePicker
           label="Fecha de nacimiento"
@@ -57,26 +58,32 @@ export default function ({ setShowForm, onAdd }: FormProps) {
             setFechaNacimiento(newValue);
             console.log(`Fecha seleccionada: ${newValue?.format("DD/MM/YYYY")}`)
           }}
+          sx={{flex: 1}}
         />
-        <FormControl sx={{width: "auto"}}>
+        <FormControl sx={{flex: 1}}>
           <InputLabel id="raza">Raza</InputLabel>
           <Select label="Raza" labelId="raza" value={raza} onChange={e => setRaza(e.target.value)}>
             <MenuItem value={"yorkshire"}>Yorkshire</MenuItem>
           </Select>
         </FormControl>
 
-        <FormControl>
+        <FormControl sx={{flex: 1}}>
           <InputLabel id="estado">Estado</InputLabel>
           <Select label="Estado" labelId="estado" value={estado} onChange={e => setEstado(e.target.value)}>
             <MenuItem value={"vacia"}>Vacia</MenuItem>
           </Select>
         </FormControl>
       </section>
-      <div id="actions" className="flex gap-1 mt-5">
-        <Button variant="contained" sx={{ alignSelf: "start" }} type="submit">
+      <div id="actions" className="flex gap-3 mt-5">
+        <Button variant="contained" sx={{ alignSelf: "start", '&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}} type="submit">
           Guardar
         </Button>
-        <Button sx={{ color: "#395b64" }} onClick={() => setShowForm(false)}>
+
+        <Button sx={{ color: "#171717",'&:hover': {
+                  backgroundColor: '#D3B8A1',
+                },}} onClick={() => setShowForm(false)}>
           Cancelar
         </Button>
       </div>

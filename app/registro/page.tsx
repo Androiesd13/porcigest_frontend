@@ -14,6 +14,7 @@ import MuiAlert from "@mui/material/Alert";
 import Link from "next/link";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LoginIcon from '@mui/icons-material/Login';
+import { FormLabel } from "@mui/material";
 
 interface FormData {
   nombre: string;
@@ -144,39 +145,47 @@ export default function Registro() {
   };
 
   return (
-    <div className="max-w-5xl m-auto">
-      <header className="mt-10">
-        <h5 className="text-3xl text-[#395B64] text-center">PorciGest</h5>
+    <div className="max-w-5xl m-auto ">
+      <header className="mt-10  ">
+        <div className="logo flex gap-2 items-center">
+          <img src="/logo.jpg" alt="logo de porciGest" className="bg-primary w-20 h-20 rounded-full"/>
+          <h3 className="text-2xl">Porcigest</h3>
+        </div>
       </header>
-
       <main>
-        <div className="bg-[#A5C9CA] text-center p-4 mt-4 rounded">
-          <h1 className="text-xl font-semibold text-[#2C3333]">
+        <div className="bg-accent text-center p-4 mt-4 rounded flex flex-col items-center">
+          <h1 className="text-xl font-semibold text-[#000000]">
             Registrar Usuario
           </h1>
+           <PersonIcon sx={{ fontSize: 80 }} className="text-[#000000] mt-2"/>
         </div>
-
-        <div className="flex justify-center mt-6">
-          <PersonIcon sx={{ fontSize: 80 }} className="text-[#2C3333]" />
-        </div>
-
+        
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded-lg mt-6 p-8"
         >
           <div className="grid grid-cols-2 gap-6">
-            <TextField
-              label="Nombre"
-              variant="outlined"
-              fullWidth
-              value={formData.nombre}
-              onChange={handleInputChange("nombre")}
-              error={!!errors.nombre}
-              helperText={errors.nombre}
-            />
+            <div className="flex flex-col gap-1">
+              <FormLabel sx={{ fontWeight: 600, color:"#black" }}>
+                Nombre
+              </FormLabel>
+                <TextField
+                  label=""
+                  variant="outlined"
+                  fullWidth
+                  value={formData.nombre}
+                  onChange={handleInputChange("nombre")}
+                  error={!!errors.nombre}
+                  helperText={errors.nombre}
+                />
+            </div>
 
+            <div className="flex flex-col gap-1">
+              <FormLabel sx={{ fontWeight: 600, color:"#black" }}>
+                Apellido
+              </FormLabel>
             <TextField
-              label="Apellido"
+              label=""
               variant="outlined"
               fullWidth
               value={formData.apellido}
@@ -184,9 +193,9 @@ export default function Registro() {
               error={!!errors.apellido}
               helperText={errors.apellido}
             />
-
+            </div>
             <TextField
-              select
+              select 
               label="Tipo de documento"
               variant="outlined"
               fullWidth
@@ -256,7 +265,7 @@ export default function Registro() {
           <div className="flex justify-center mt-8">
             <button
               type="submit"
-              className="bg-[#A5C9CA] text-[#2C3333] px-6 py-2 rounded-lg hover:bg-[#395B64] hover:text-white transition"
+              className="bg-accent text-[#000000] px-6 py-2 rounded-lg hover:bg-primary"
             >
               <Link href="/"> Registrar <PersonAddIcon/></Link>
             </button>
@@ -266,7 +275,7 @@ export default function Registro() {
             <span className="text-sm text-gray-600">¿Ya tienes cuenta?</span>
             <button
               type="button"
-              className="bg-[#395B64] text-white px-4 py-1 rounded-lg hover:bg-[#2C3333] transition">
+              className="bg-accent text-black px-4 py-1 rounded-lg hover:bg-primary transition">
               <Link href="/login"> Iniciar Sesión <LoginIcon/> </Link>
             </button>
           </div>

@@ -13,8 +13,10 @@ const HeaderGestion = ({title, textButton, setShowForm} : HeaderProps) => {
       <h1 className="text-xl md:text-2xl">{title}</h1>
       <Button
         variant="contained"
+        color="secondary"
         sx={{
           textTransform: "none",
+          '&:hover': { backgroundColor: "#ceb6a3" },
         }}
         onClick={setShowForm}
       >

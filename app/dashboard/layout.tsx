@@ -11,7 +11,6 @@ export default function LayoutDashboard({
     <>
       <Header />
       <NavBar/>
-      <NavBarMobile/>
       <main className="md:max-w-(--widthApp) mx-auto">{children}</main>
     </>
   );

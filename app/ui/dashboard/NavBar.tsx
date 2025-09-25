@@ -14,7 +14,7 @@ import ItemNav from "../utils/ItemNav";
 
 export default function NavBar() {
   return (
-    <nav className="hidden md:block max-w-(--widthApp) mx-auto bg-secondary rounded-sm">
+    <nav className="hidden md:block max-w-(--widthApp) mx-auto bg-primary rounded-sm">
       <ul className="flex justify-around">
         <ItemNav
           label="Dashboard"

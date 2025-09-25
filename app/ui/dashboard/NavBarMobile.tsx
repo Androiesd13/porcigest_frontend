@@ -11,10 +11,15 @@ import {
 } from "@mui/icons-material";
 
 import ItemNav from "../utils/ItemNav";
+import { useState } from "react";
 
-const NavBarMobile = () => {
+interface NavBarProps{
+  open: boolean,
+}
+
+const NavBarMobile = ({open}: NavBarProps) => {
   return (
-    <nav className="max-w-(--widthApp) mx-auto bg-secondary rounded-sm md:hidden">
+    <nav className={`${!open? 'hidden': ''} max-w-(--widthApp) mx-auto bg-primary rounded-sm md:hidden`}>
       <ul className="flex flex-col justify-around">
         <ItemNav
           label="Dashboard"
