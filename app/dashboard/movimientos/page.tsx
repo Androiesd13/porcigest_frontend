@@ -1,10 +1,25 @@
 "use client";
 
 import * as React from "react";
+import { styled } from "@mui/material/styles";
+import { tableCellClasses } from "@mui/material";
+
 import {
   Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Typography
 } from "@mui/material";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    color: theme.palette.secondary.main,
+    fontWeight: "900",
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+    fontWeight: "900",
+  },
+}));
+
 
 export default function Movimientos() {
   // Datos de ejemplo con el campo "pagina"
@@ -22,17 +37,17 @@ export default function Movimientos() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Usuario</TableCell>
-            <TableCell>Acción</TableCell>
-            <TableCell>Página</TableCell>
-            <TableCell>Fecha</TableCell>
+            <StyledTableCell>ID</StyledTableCell>
+            <StyledTableCell>Usuario</StyledTableCell>
+            <StyledTableCell>Acción</StyledTableCell>
+            <StyledTableCell>Página</StyledTableCell>
+            <StyledTableCell>Fecha</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {movimientos.map((mov) => (
             <TableRow key={mov.id}>
-              <TableCell>{mov.id}</TableCell>
+              <StyledTableCell>{mov.id}</StyledTableCell>
               <TableCell>{mov.usuario}</TableCell>
               <TableCell>{mov.accion}</TableCell>
               <TableCell>{mov.pagina}</TableCell>

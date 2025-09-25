@@ -22,7 +22,7 @@ import { RegistroCerda} from "../../../lib/definitions";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.background.default,
+    color: theme.palette.secondary.main,
     fontWeight: "900",
   },
   [`&.${tableCellClasses.body}`]: {

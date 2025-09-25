@@ -21,7 +21,7 @@ import { tableCellClasses } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.background.default,
+    color: theme.palette.secondary.main,
     fontWeight: "900",
   },
   [`&.${tableCellClasses.body}`]: {
@@ -142,6 +142,7 @@ const TableVacunacion = () => {
           <TableBody>
             {rows.map((row, rowIndex) => (<TableRow key={rowIndex}>
               {row.map((cell) => (<TableCell key={cell.key}>{cell.content}</TableCell>))}
+                <TableCell> {/*Se puede renderizar con un map guardando los datos de las acciones en un array*/}
                 <Tooltip title="Editar">
                     <IconButton color="success">
                       <CreateRounded />
@@ -157,6 +158,7 @@ const TableVacunacion = () => {
                       <DeleteRounded />
                     </IconButton>
                   </Tooltip>
+                </TableCell>
             </TableRow>
             ))}
           </TableBody>
